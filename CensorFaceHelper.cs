@@ -42,10 +42,18 @@ namespace EpiserverSite1.Business
 
             UpdateImageBlob(imageBlob, image);
         }
+
         private static IList<DetectedFace> GetFaces(Stream image)
         {
-            var task = Task.Run(async () => await CensorFaceHelper.DetectFaces(image));
+            var task = Task.Run(async () => await DetectFaces(image));
             return task.Result;
+        }
+
+        private static async Task<IList<DetectedFace>> DetectFaces(Stream image)
+        {
+            return await Client.Face.DetectWithStreamAsync(image,
+                recognitionModel: RecognitionModel,
+                returnFaceLandmarks: true);
         }
 
         private static void CensorFace (DetectedFace face, Graphics graphics)
@@ -88,13 +96,6 @@ namespace EpiserverSite1.Business
             return new PointF(
                 (float)rightEyeX + CensorWidthModifier * (float)(rightEyeX - leftEyeX),
                 (float)rightEyeY + CensorWidthModifier * (leftEyeY < rightEyeY ? 1 : -1) * (float)(leftEyeY - rightEyeY));
-        }
-
-        private static async Task<IList<DetectedFace>> DetectFaces(Stream image)
-        {
-            return await Client.Face.DetectWithStreamAsync(image,
-                recognitionModel: RecognitionModel,
-                returnFaceLandmarks: true);
         }
 
         private static void UpdateImageBlob(Blob imageBlob, Image image)

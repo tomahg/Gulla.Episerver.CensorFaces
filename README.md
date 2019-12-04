@@ -9,4 +9,7 @@ Will use Azure Cognitive Services Face API to detect faces, and place a black re
 * Create an Azure Cognitive Services, Face API-resource using the Azure portal.
 * Add the following keys to appsettings section in web.config. Get the values from the Azure portal.  
   - Gulla.EpiserverCensorFaces:CognitiveServices.SubscriptionKey
-  - Gulla.EpiserverCensorFaces:CognitiveServices.Endpoint. 
+  - Gulla.EpiserverCensorFaces:CognitiveServices.Endpoint
+
+## Get it
+Grab it from this repository or install the nuget available on nuget.org as [Gulla.EpiserverCensorFaces](https://www.nuget.org/packages/Gulla.EpiserverCensorFaces/). Check «Include prerelease» in Visual Studio.

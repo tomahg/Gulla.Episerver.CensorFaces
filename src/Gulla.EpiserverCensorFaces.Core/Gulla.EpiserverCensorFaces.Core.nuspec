@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Gulla.EpiserverCensorFaces</id>
-    <version>1.0.3-preview.1</version>
+    <version>1.0.4-preview.1</version>
     <title>Gulla.EpiserverCensorFaces</title>
     <authors>Tomas Hensrud Gulla</authors>
     <owners>Tomas Hensrud Gulla</owners>
@@ -10,7 +10,7 @@
     <summary>Automatically censor all person images uploaded to Episerver!</summary>
     <copyright>Copyright 2019</copyright>	
     <repository type="git" url="https://github.com/tomahg/Gulla.EpiserverCensorFaces" branch="master" />
-    <releaseNotes>Initial release.</releaseNotes>
+    <releaseNotes>Bump System.Security.Cryptography.Xml.</releaseNotes>
 	<tags>episerver,azure,image,gdpr,censor</tags>
 	<description>Will use Azure Cognitive Services Face API to detect faces, and place a black rectangle over the eye region of all detected faces.</description>
     <dependencies>

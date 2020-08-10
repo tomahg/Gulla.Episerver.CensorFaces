@@ -1,22 +1,22 @@
 ﻿<?xml version="1.0"?>
 <package >
   <metadata>
-    <id>Gulla.EpiserverCensorFaces</id>
-    <version>1.0.4-preview.1</version>
-    <title>Gulla.EpiserverCensorFaces</title>
+    <id>Gulla.Episerver.CensorFaces</id>
+    <version>1.0.5-preview.1</version>
+    <title>Gulla.Episerver.CensorFaces</title>
     <authors>Tomas Hensrud Gulla</authors>
     <owners>Tomas Hensrud Gulla</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <summary>Automatically censor all person images uploaded to Episerver!</summary>
-    <copyright>Copyright 2019</copyright>	
+    <copyright>Copyright 2020</copyright>	
     <repository type="git" url="https://github.com/tomahg/Gulla.EpiserverCensorFaces" branch="master" />
-    <releaseNotes>Bump System.Security.Cryptography.Xml.</releaseNotes>
+    <releaseNotes>Update dependencies and nuget title.</releaseNotes>
 	<tags>episerver,azure,image,gdpr,censor</tags>
 	<description>Will use Azure Cognitive Services Face API to detect faces, and place a black rectangle over the eye region of all detected faces.</description>
     <dependencies>
-	  <dependency id="EPiServer.Framework" version="11.1.0" />
-	  <dependency id="EPiServer.CMS.Core" version="11.1.0" />
-	  <dependency id="EPiServer.CMS.UI" version="11.1.0" />
+	  <dependency id="EPiServer.Framework" version="[11.1.0, 12.0.0)" />
+	  <dependency id="EPiServer.CMS.Core" version="[11.1.0, 12.0.0)" />
+	  <dependency id="EPiServer.CMS.UI" version="[11.1.0, 12.0.0)" />
 	  <dependency id="Microsoft.Azure.CognitiveServices.Vision.Face" version="2.5.0-preview.1" />
 	</dependencies>	
   </metadata>

@@ -17,7 +17,7 @@
 	  <dependency id="EPiServer.Framework" version="[11.1.0, 12.0.0)" />
 	  <dependency id="EPiServer.CMS.Core" version="[11.1.0, 12.0.0)" />
 	  <dependency id="EPiServer.CMS.UI" version="[11.1.0, 12.0.0)" />
-	  <dependency id="Microsoft.Azure.CognitiveServices.Vision.Face" version="2.5.0-preview.1" />
+	  <dependency id="Microsoft.Azure.CognitiveServices.Vision.Face" version="2.6.0-preview.1" />
 	</dependencies>	
   </metadata>
 </package>

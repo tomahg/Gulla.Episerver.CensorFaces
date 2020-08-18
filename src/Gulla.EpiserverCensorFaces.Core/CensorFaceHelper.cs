@@ -18,7 +18,7 @@ namespace Gulla.EpiserverCensorFaces.Core
 
         private static readonly string SubscriptionKey = WebConfigurationManager.AppSettings["Gulla.EpiserverCensorFaces:CognitiveServices.SubscriptionKey"];
         private static readonly string Endpoint = WebConfigurationManager.AppSettings["Gulla.EpiserverCensorFaces:CognitiveServices.Endpoint"];
-        private const string RecognitionModel = "recognition_02";
+        private const string RecognitionModel = "recognition_03";
 
         private const float CensorWidthModifier = 0.25f;
         private const float CensorHeightModifier = 4;

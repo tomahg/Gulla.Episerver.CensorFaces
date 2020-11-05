@@ -15,4 +15,4 @@ Will use Azure Cognitive Services Face API to detect faces, and place a black re
 Check out [this blog post](https://blog.novacare.no/episerver-image-anonymization-using-microsoft-cognitive-services-and-face-api/).
 
 ## Get it
-Grab it from this repository or install the nuget available on nuget.org as [Gulla.EpiserverCensorFaces](https://www.nuget.org/packages/Gulla.EpiserverCensorFaces/). Check «Include prerelease» in Visual Studio.
+Grab it from this repository or install the nuget available on nuget.org as [Gulla.EpiserverCensorFaces](https://www.gulla.net/no/blog/episerver-image-anonymization-using-microsoft-cognitive-services-and-face-api/). Check «Include prerelease» in Visual Studio.

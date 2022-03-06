@@ -1,4 +1,4 @@
-# Gulla.EpiserverCensorFaces
+# Gulla.EpiserverCensorFaces for CMS 12
 
 This is the readme for the CMS 12 version, the version for CMS 11 is [over here](https://github.com/tomahg/Gulla.Episerver.CensorFaces/blob/cms11/README.md).
 

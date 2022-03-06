@@ -20,7 +20,7 @@ namespace Gulla.EpiserverCensorFaces.Core
         private static string _subscriptionKey;
         private static string _endpoint;
 
-        private const string RecognitionModel = "recognition_03";
+        private const string RecognitionModel = Microsoft.Azure.CognitiveServices.Vision.Face.Models.RecognitionModel.Recognition04;
         private const float CensorWidthModifier = 0.25f;
         private const float CensorHeightModifier = 4;
 

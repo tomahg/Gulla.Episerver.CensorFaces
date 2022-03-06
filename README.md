@@ -1,7 +1,9 @@
-# Gulla.EpiserverCensorFaces
+# Gulla.EpiserverCensorFaces CMS 11
+
+This is the readme for the CMS 11 version, the version for CMS 12 is [over here](https://github.com/tomahg/Gulla.Episerver.CensorFaces/blob/main/README.md).
 
 ## Censors eye region of faces
-Will use Azure Cognitive Services Face API to detect faces, and place a black rectangle over the eye region of all detected faces, in images uploaded in Episerver CMS.
+This addon will use Azure Cognitive Services Face API to detect faces, and place a black rectangle over the eye region of all detected faces, in images uploaded in Optimizely Content Cloud (formerly Episerver CMS).
 
 ![Censored](images/censored.jpg)
 
@@ -12,7 +14,7 @@ Will use Azure Cognitive Services Face API to detect faces, and place a black re
   - Gulla.EpiserverCensorFaces:CognitiveServices.Endpoint
   
 ## More information
-Check out [this blog post](https://blog.novacare.no/episerver-image-anonymization-using-microsoft-cognitive-services-and-face-api/).
+Check out [this blog post](https://www.gulla.net/no/blog/episerver-image-anonymization-using-microsoft-cognitive-services-and-face-api/).
 
 ## Get it
-Grab it from this repository or install the nuget available on nuget.org as [Gulla.EpiserverCensorFaces](https://www.gulla.net/no/blog/episerver-image-anonymization-using-microsoft-cognitive-services-and-face-api/). Check «Include prerelease» in Visual Studio.
+Grab it from this repository or install the nuget available on nuget.org as [Gulla.EpiserverCensorFaces](https://www.nuget.org/packages/Gulla.Episerver.CensorFaces/). Check «Include prerelease» in Visual Studio.

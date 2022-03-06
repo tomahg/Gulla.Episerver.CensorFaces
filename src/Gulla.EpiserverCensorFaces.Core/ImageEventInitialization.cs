@@ -6,7 +6,6 @@ using EPiServer.Framework.Initialization;
 namespace Gulla.EpiserverCensorFaces.Core
 {
     [InitializableModule]
-    [ModuleDependency(typeof(EPiServer.Web.InitializationModule))]
     public class ImageEventInitialization : IInitializableModule
     {
         public void Initialize(InitializationEngine context)

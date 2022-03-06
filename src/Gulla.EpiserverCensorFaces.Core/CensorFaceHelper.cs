@@ -4,10 +4,11 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web.Configuration;
 using EPiServer.Framework.Blobs;
+using EPiServer.ServiceLocation;
 using Microsoft.Azure.CognitiveServices.Vision.Face;
 using Microsoft.Azure.CognitiveServices.Vision.Face.Models;
+using Microsoft.Extensions.Configuration;
 using Image = System.Drawing.Image;
 
 namespace Gulla.EpiserverCensorFaces.Core
@@ -15,19 +16,19 @@ namespace Gulla.EpiserverCensorFaces.Core
     public static class CensorFaceHelper
     {
         private static IFaceClient _client;
+        private static IConfiguration _configuration;
+        private static string _subscriptionKey;
+        private static string _endpoint;
 
-        private static readonly string SubscriptionKey = WebConfigurationManager.AppSettings["Gulla.EpiserverCensorFaces:CognitiveServices.SubscriptionKey"];
-        private static readonly string Endpoint = WebConfigurationManager.AppSettings["Gulla.EpiserverCensorFaces:CognitiveServices.Endpoint"];
         private const string RecognitionModel = "recognition_03";
-
         private const float CensorWidthModifier = 0.25f;
         private const float CensorHeightModifier = 4;
 
-        private static IFaceClient Client =>
-            _client ?? (_client = new FaceClient(new ApiKeyServiceClientCredentials(SubscriptionKey))
-            {
-                Endpoint = Endpoint
-            });
+        private static IConfiguration Configuration => _configuration ??= ServiceLocator.Current.GetInstance<IConfiguration>();
+        private static string Endpoint => _endpoint ??= Configuration.GetValue<string>("Gulla:EpiserverCensorFaces:CognitiveServices:Endpoint"); 
+        private static string SubscriptionKey => _subscriptionKey ??= Configuration.GetValue<string>("Gulla:EpiserverCensorFaces:CognitiveServices:SubscriptionKey");
+        private static IFaceClient Client => _client ??= new FaceClient(new ApiKeyServiceClientCredentials(SubscriptionKey)) { Endpoint = Endpoint };
+        
 
         public static void CensorBinaryData(Blob imageBlob)
         {

@@ -2,7 +2,7 @@
 
 This is the readme for the CMS 12 version, the version for CMS 11 is [over here](https://github.com/tomahg/Gulla.Episerver.CensorFaces/blob/cms11/README.md).
 
-Warning: This addon is using System.Drawing, and because of that it currently only works on Windows, not Linux.
+***Warning:*** This addon is using `System.Drawing`, and because of that it currently only works on Windows, not Linux.
 
 ## Censors eye region of faces
 This addon will use Azure Cognitive Services Face API to detect faces, and place a black rectangle over the eye region of all detected faces, in images uploaded in Optimizely Content Cloud (formerly Episerver CMS).

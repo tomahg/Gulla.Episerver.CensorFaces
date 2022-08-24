@@ -24,7 +24,7 @@ This addon will use Azure Cognitive Services Face API to detect faces, and place
 ```
   
 ## More information
-Check out [this blog post](https://www.gulla.net/no/blog/episerver-image-anonymization-using-microsoft-cognitive-services-and-face-api/).
+Check out [this blog post](https://www.gulla.net/no/blog/episerver-image-anonymization-using-microsoft-cognitive-services-and-face-api/) or [this blog post](https://www.gulla.net/no/blog/personvernvennlig-bildeopplasting/).
 
 ## Get it
 Grab it from this repository or install the nuget available on nuget.org as [Gulla.EpiserverCensorFaces](https://www.nuget.org/packages/Gulla.Episerver.CensorFaces/). Check «Include prerelease» in Visual Studio.

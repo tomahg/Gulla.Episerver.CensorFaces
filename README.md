@@ -5,7 +5,7 @@ This is the readme for the CMS 12 version, the version for CMS 11 is [over here]
 ***Warning:*** This addon is using `System.Drawing`, and because of that it currently only works on Windows, not Linux.
 
 ## Censors eye region of faces
-This addon will use Azure Cognitive Services Face API to detect faces, and place a black rectangle over the eye region of all detected faces, in images uploaded in Optimizely Content Cloud (formerly Episerver CMS).
+This addon will use Azure Cognitive Services Face API to detect faces, and place a black rectangle over the eye region of all detected faces, in images uploaded in Optimizely CMS (formerly Episerver CMS).
 
 ![Censored](images/censored.jpg)
 

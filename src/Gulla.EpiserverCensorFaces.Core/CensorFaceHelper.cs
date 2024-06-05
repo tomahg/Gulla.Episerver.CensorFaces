@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,7 +8,9 @@ using EPiServer.ServiceLocation;
 using Microsoft.Azure.CognitiveServices.Vision.Face;
 using Microsoft.Azure.CognitiveServices.Vision.Face.Models;
 using Microsoft.Extensions.Configuration;
-using Image = System.Drawing.Image;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.Drawing.Processing;
+using SixLabors.ImageSharp.Processing;
 
 namespace Gulla.EpiserverCensorFaces.Core
 {
@@ -25,21 +26,20 @@ namespace Gulla.EpiserverCensorFaces.Core
         private const float CensorHeightModifier = 4;
 
         private static IConfiguration Configuration => _configuration ??= ServiceLocator.Current.GetInstance<IConfiguration>();
-        private static string Endpoint => _endpoint ??= Configuration.GetValue<string>("Gulla:EpiserverCensorFaces:CognitiveServices:Endpoint"); 
+        private static string Endpoint => _endpoint ??= Configuration.GetValue<string>("Gulla:EpiserverCensorFaces:CognitiveServices:Endpoint");
         private static string SubscriptionKey => _subscriptionKey ??= Configuration.GetValue<string>("Gulla:EpiserverCensorFaces:CognitiveServices:SubscriptionKey");
         private static IFaceClient Client => _client ??= new FaceClient(new ApiKeyServiceClientCredentials(SubscriptionKey)) { Endpoint = Endpoint };
-        
+
 
         public static void CensorBinaryData(Blob imageBlob)
         {
             var detectedFaces = GetFaces(imageBlob.OpenRead());
             if (!detectedFaces.Any()) return;
 
-            var image = Image.FromStream(new MemoryStream(imageBlob.ReadAllBytes()));
-            var graphics = Graphics.FromImage(image);
+            var image = Image.Load(new MemoryStream(imageBlob.ReadAllBytes()));
             foreach (var face in detectedFaces)
             {
-                CensorFace(face, graphics);
+                CensorFace(face, image);
             }
 
             UpdateImageBlob(imageBlob, image);
@@ -58,14 +58,9 @@ namespace Gulla.EpiserverCensorFaces.Core
                 returnFaceLandmarks: true);
         }
 
-        private static void CensorFace (DetectedFace face, Graphics graphics)
+        private static void CensorFace(DetectedFace face, Image image)
         {
-            graphics.DrawLine(GetCensorPen(face), GetCensorLeftPoint(face), GetCensorRightPoint(face));
-        }
-
-        private static Pen GetCensorPen(DetectedFace face)
-        {
-            return new Pen(new SolidBrush(Color.Black), GetCensorHeight(face));
+            image.Mutate(ctx => ctx.DrawLine(Color.Black, GetCensorHeight(face), GetCensorLeftPoint(face), GetCensorRightPoint(face)));
         }
 
         private static float GetCensorHeight(DetectedFace face)
@@ -80,8 +75,8 @@ namespace Gulla.EpiserverCensorFaces.Core
         {
             var rightEyeX = face.FaceLandmarks.EyeRightOuter.X;
             var leftEyeX = face.FaceLandmarks.EyeLeftOuter.X;
-            var leftEyeY = face.FaceLandmarks.EyeLeftOuter.Y;
             var rightEyeY = face.FaceLandmarks.EyeRightOuter.Y;
+            var leftEyeY = face.FaceLandmarks.EyeLeftOuter.Y;
 
             return new PointF(
                 (float)leftEyeX - CensorWidthModifier * (float)(rightEyeX - leftEyeX),
@@ -92,8 +87,8 @@ namespace Gulla.EpiserverCensorFaces.Core
         {
             var rightEyeX = face.FaceLandmarks.EyeRightOuter.X;
             var leftEyeX = face.FaceLandmarks.EyeLeftOuter.X;
-            var leftEyeY = face.FaceLandmarks.EyeLeftOuter.Y;
             var rightEyeY = face.FaceLandmarks.EyeRightOuter.Y;
+            var leftEyeY = face.FaceLandmarks.EyeLeftOuter.Y;
 
             return new PointF(
                 (float)rightEyeX + CensorWidthModifier * (float)(rightEyeX - leftEyeX),
@@ -104,7 +99,7 @@ namespace Gulla.EpiserverCensorFaces.Core
         {
             using (var ms = new MemoryStream())
             {
-                image.Save(ms, image.RawFormat);
+                image.Save(ms, image.Metadata.DecodedImageFormat);
                 var imageBytes = ms.ToArray();
 
                 using (var ws = imageBlob.OpenWrite())

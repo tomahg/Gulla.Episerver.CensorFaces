@@ -12,7 +12,7 @@ using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Drawing.Processing;
 using SixLabors.ImageSharp.Processing;
 
-namespace Gulla.EpiserverCensorFaces.Core
+namespace Gulla.Episerver.CensorFaces
 {
     public static class CensorFaceHelper
     {

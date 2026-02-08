@@ -2,16 +2,16 @@
 <package >
   <metadata>
     <id>Gulla.Episerver.CensorFaces</id>
-    <version>3.0.0-preview.3</version>
+    <version>3.0.1-preview.3</version>
     <title>Gulla.Episerver.CensorFaces</title>
     <authors>Tomas Hensrud Gulla</authors>
     <owners>Tomas Hensrud Gulla</owners>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <license type="expression">Apache-2.0</license>
     <summary>Automatically censor all faces in images uploaded to Optimizely CMS!</summary>
-    <copyright>Copyright 2025</copyright>
+    <copyright>Copyright 2026</copyright>
     <repository type="git" url="https://github.com/tomahg/Gulla.EpiserverCensorFaces" branch="master" />
-    <releaseNotes>Upgrade to .NET 8</releaseNotes>
+    <releaseNotes>Update dependencies</releaseNotes>
     <tags>optimizely,azure,censor,image,gdpr</tags>
     <description>Will use Azure Cognitive Services Face API to detect faces, and place a black rectangle over the eye region of all detected faces.</description>
     <dependencies>

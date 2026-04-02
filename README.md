@@ -1,6 +1,6 @@
 # Gulla.EpiserverCensorFaces for CMS 12
 
-This is the readme for the CMS 12 version, the version for CMS 11 is [over here](https://github.com/tomahg/Gulla.Episerver.CensorFaces/tree/cms11).
+This is the readme for the CMS 12 version, the version for CMS 11 is [over here](https://github.com/tomahg/Gulla.Episerver.CensorFaces/tree/cms11) and the version for CMS 13 is [over here](https://github.com/tomahg/Gulla.Episerver.CensorFaces/tree/main)
 
 ## Censors eye region of faces
 

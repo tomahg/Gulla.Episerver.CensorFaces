@@ -1,6 +1,6 @@
 # Gulla.EpiserverCensorFaces for CMS 12
 
-This is the readme for the CMS 12 version, the version for CMS 11 is [over here](https://github.com/tomahg/Gulla.Episerver.CensorFaces/tree/cms11).
+This is the readme for the CMS 13 version, the version for CMS 11 is [over here](https://github.com/tomahg/Gulla.Episerver.CensorFaces/tree/cms11) an the version for CMS 12 is [over here](https://github.com/tomahg/Gulla.Episerver.CensorFaces/tree/cms12).
 
 ## Censors eye region of faces
 
@@ -24,7 +24,7 @@ This addon will use Azure Cognitive Services Face API to detect faces, and place
   }
 ```
 
-- Add the following to `Configure` in `Startup.cs` and add IContentEvents as an input paramter if not already present
+- Add the following to `Configure` in `Startup.cs` and add IContentEvents as an input parameter if not already present
 ```
 public void Configure(IApplicationBuilder app, IContentEvents contentEvents)
 {
